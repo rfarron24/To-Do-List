@@ -1,12 +1,12 @@
-document.getElementById('todoform').addEventListener('button',save);
+document.getElementById('todoform').addEventListener('submit',save);
 
 function save(e){
-  var todo = getElementById('todo').value;
+  var todo = document.getElementById('todoInput').value;
 
   var todoX = {
     todo_list : todo
   }
-  if(localStorage.getItem('todos')===null){
+  if(localStorage.getItem('todos') === null){
     var todos = [];
     todos.push(todoX);
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -31,8 +31,9 @@ function fetchtodos(){
 
     var todoshow = todos[i].todo_list;
 
-    output.innerHTML += '  <div class="well">'+ '<h3>' + todos + '</h3>' +
-                            ' <i class="glyphicon glyphicon-plus"></i>'+
+    output.innerHTML += '  <div class="well">'+ '<h3>' + todoshow + '</h3>' +
+                            ' <i class="glyphicon glyphicon-ok" id="ok"></i>'+
+                            ' <i class="glyphicon glyphicon-trash" id="del"></i>'+
                              '</div>';
   }
 

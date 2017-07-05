@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-    <script src="resources/js/main.js" charset="utf-8"></script>
+
     <title>To-Do List Javascript</title>
   </head>
   <body>
@@ -25,13 +25,29 @@
 
               <form id="todoform">
           <div class="input">
-            <input type="text" id="todo" placeholder="Enter an activity... " onsubmit="add()" >
-                  <button type="button" onclick="add()"><i class="glyphicon-plus" ></i></button>
+            <input type="text" id="todoInput" placeholder="Enter an activity... ">
+                  <button type="submit"><i class="glyphicon-plus"></i></button>
           </div>
         </form>
 
 
-          <script type="text/javascript">
+
+
+<!-- SAVE BY PRESS ENTER JQUERY-->
+        <script>
+        $(document).ready(function() {
+
+          $('.todoInput').keydown(function(event) {
+            // enter has keyCode = 13, change it if you want to use another button
+            if (event.keyCode == 13) {
+              this.form.fetchtodos();
+              return false;
+            }
+          });
+        })
+      </script>
+
+<!--      <script type="text/javascript">
             function add(){
               var output = document.getElementById('formOutput');
               var todosave = document.getElementById('todo').value;
@@ -40,7 +56,7 @@
                                        '</div>';
               document.getElementById('todoform').reset();
             }
-          </script>
+          </script> -->
 
           <form class="form-horizontal" id="formOutput">
             <div class="form-group">
@@ -66,9 +82,17 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-<!--   BOOTSTRAP Javascript DIRECTORY LINK   -->
+               <!--   jQuery CDN   from https://code.jquery.com/    -->
+               <script
+              src="https://code.jquery.com/jquery-3.2.1.js"
+              integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+              crossorigin="anonymous"></script>
+
+
+
+              <!--   BOOTSTRAP Javascript DIRECTORY LINK   -->
+    <script src="resources/js/main.js" charset="utf-8"></script>
 
 
   </body>
